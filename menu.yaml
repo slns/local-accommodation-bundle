@@ -1,0 +1,4 @@
+sidebar:
+  label: "Local Demo"
+  route: "local_demo_dashboard"
+  icon: "cube"
