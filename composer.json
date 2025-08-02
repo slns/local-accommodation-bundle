@@ -1,5 +1,5 @@
 {
-    "name": "seu-usuario/local-demo-bundle",
+    "name": "slns/local-demo-bundle",
     "description": "Um bundle de exemplo reutilizável para Symfony.",
     "type": "symfony-bundle",
     "license": "MIT",
