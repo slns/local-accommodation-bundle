@@ -14,5 +14,16 @@
         "symfony/twig-bundle": "^7.3",
         "symfony/routing": "^7.3",
         "symfony/http-foundation": "^7.3"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php scripts/copy_routes.php"
+        ],
+        "post-update-cmd": [
+            "php scripts/copy_routes.php"
+        ],
+        "post-uninstall-cmd": [
+            "php scripts/remove_routes.php"
+        ]
     }
 }
