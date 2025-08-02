@@ -1,0 +1,18 @@
+{
+    "name": "seu-usuario/local-demo-bundle",
+    "description": "Um bundle de exemplo reutilizável para Symfony.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LocalDemoBundle\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "symfony/framework-bundle": "^7.0 || ^7.3",
+        "symfony/twig-bundle": "^7.3",
+        "symfony/routing": "^7.3",
+        "symfony/http-foundation": "^7.3"
+    }
+}
