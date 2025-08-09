@@ -9,9 +9,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class GuestType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        // ... add form fields for Guest ...
+        $builder
+            ->add('name', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
+                'label' => 'Name',
+            ])
+            ->add('email', \Symfony\Component\Form\Extension\Core\Type\EmailType::class, [
+                'label' => 'Email',
+            ])
+            ->add('phone', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
+                'label' => 'Phone',
+                'required' => false,
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -3,6 +3,6 @@ local_demo_dashboard:
   path: /local-accommodation/dashboard
   controller: LocalAccommodationBundle\Controller\DashboardController::index
 
-local_demo_hospedes:
-  path: /local-accommodation/hospedes
-  controller: LocalAccommodationBundle\Controller\HospedeController::index
+local_accommodation_guests:
+  path: /local-accommodation/guests
+  controller: LocalAccommodationBundle\Controller\GuestController::index

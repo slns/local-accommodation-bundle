@@ -1,0 +1,21 @@
+<?php
+
+namespace LocalAccommodationBundle\Controller;
+
+use LocalAccommodationBundle\Entity\Maintenance;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class MaintenanceController extends AbstractController
+{
+    #[Route('/local-accommodation/maintenance', name: 'local_accommodation_maintenance')]
+    public function index(ManagerRegistry $registry): Response
+    {
+        $maintenance = $registry->getManager()->getRepository(Maintenance::class)->findAll();
+        return $this->render('@LocalAccommodation/maintenance/index.html.twig', [
+            'maintenance' => $maintenance
+        ]);
+    }
+}
