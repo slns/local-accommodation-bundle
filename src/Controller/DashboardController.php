@@ -6,26 +6,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-use App\Menu\SidebarMenuProvider;
+use Symfony\Component\Yaml\Yaml;
 
 class DashboardController extends AbstractController
 {
-    private SidebarMenuProvider $sidebarMenuProvider;
-
-    public function __construct(SidebarMenuProvider $sidebarMenuProvider)
-    {
-        $this->sidebarMenuProvider = $sidebarMenuProvider;
-    }
-
     #[Route('/dashboard', name: 'local_accommodation_dashboard')]
     public function index(): Response
     {
+        $menuFile = __DIR__ . '/../../menu.yaml';
+        $menuConfig = Yaml::parseFile($menuFile);
+        $sidebarMenu = $menuConfig['sidebar'] ?? [];
+
         return $this->render('@LocalAccommodation/dashboard.html.twig', [
             'dummyData' => [
                 'total' => 42,
                 'message' => 'Bem-vindo ao Accommodation do Bundle!',
             ],
-            'sidebarMenu' => $this->sidebarMenuProvider->getMenuItems(),
+            'sidebarMenu' => $sidebarMenu,
         ]);
     }
 }
