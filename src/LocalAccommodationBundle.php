@@ -1,13 +1,12 @@
 <?php
 
-namespace LocalDemoBundle;
+namespace LocalAccommodationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
-use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-class LocalDemoBundle extends AbstractBundle
+class LocalAccommodationBundle extends AbstractBundle
 {
     public function getPath(): string
     {
@@ -17,10 +16,5 @@ class LocalDemoBundle extends AbstractBundle
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
         $container->import('../config/services.yaml');
-    }
-
-    public function configureRoutes(RoutingConfigurator $routes): void
-    {
-        $routes->import(__DIR__ . '/../config/routes.yaml');
     }
 }

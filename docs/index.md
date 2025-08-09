@@ -1,1 +1,1 @@
-# Documentação do LocalDemoBundle
+# Documentação do LocalAccommodationBundle

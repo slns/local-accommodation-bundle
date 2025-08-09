@@ -1,0 +1,12 @@
+{% extends '@LocalAccommodation/base.html.twig' %}
+
+{% block body %}
+    <div class="max-w-lg mx-auto bg-white p-8 rounded shadow">
+        <h1 class="text-xl font-bold mb-6 text-gray-800">Delete Guest</h1>
+        <p class="mb-6">Are you sure you want to delete guest <strong>{{ hospede.name }}</strong>?</p>
+        <form method="post" class="flex flex-col space-y-2">
+            <button class="btn btn-danger w-full">Delete</button>
+            <a href="{{ path('local_accommodation_hospedes') }}" class="btn btn-secondary w-full">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

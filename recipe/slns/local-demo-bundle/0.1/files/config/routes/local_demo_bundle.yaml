@@ -1,0 +1,3 @@
+# Auto-imported by Symfony Flex when installing slns/local-demo-bundle
+local_demo_bundle:
+  resource: "@LocalDemoBundle/config/routes.yaml"

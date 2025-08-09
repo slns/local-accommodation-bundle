@@ -1,4 +1,10 @@
 sidebar:
-  label: "Local Demo"
-  route: "local_demo_dashboard"
-  icon: "cube"
+  - label: "Local Accommodation"
+    route: "local_accommodation_dashboard"
+    icon: "cube"
+  - label: "Guests"
+    route: "local_accommodation_hospedes"
+    icon: "users"
+  - label: "Accommodations"
+    route: "local_accommodation_accommodations"
+    icon: "home"

@@ -1,6 +1,6 @@
 <?php
 
-namespace LocalDemoBundle\Menu;
+namespace LocalAccommodationBundle\Menu;
 
 class SidebarMenuProvider
 {
@@ -8,8 +8,8 @@ class SidebarMenuProvider
     {
         return [
             [
-                'label' => 'Demo Bundle',
-                'route' => 'local_demo_dashboard',
+                'label' => 'Accommodation Bundle',
+                'route' => 'local_accommodation_dashboard',
                 'icon'  => 'fa fa-plug',
             ],
         ];

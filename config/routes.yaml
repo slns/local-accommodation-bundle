@@ -1,4 +1,8 @@
-# Rotas do LocalDemoBundle
+# Rotas do LocalAccommodationBundle
 local_demo_dashboard:
-  path: /local-demo/dashboard
-  controller: LocalDemoBundle\Controller\DashboardController::index
+  path: /local-accommodation/dashboard
+  controller: LocalAccommodationBundle\Controller\DashboardController::index
+
+local_demo_hospedes:
+  path: /local-accommodation/hospedes
+  controller: LocalAccommodationBundle\Controller\HospedeController::index

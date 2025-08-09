@@ -1,11 +1,11 @@
 {
-    "name": "slns/local-demo-bundle",
-    "description": "Um bundle de exemplo reutilizável para Symfony.",
+    "name": "slns/local-accommodation-bundle",
+    "description": "A reusable local accommodation management bundle for Symfony.",
     "type": "symfony-bundle",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "LocalDemoBundle\\": "src/"
+            "LocalAccommodationBundle\\": "src/"
         }
     },
     "require": {
@@ -13,19 +13,13 @@
         "symfony/framework-bundle": "^7.0 || ^7.3",
         "symfony/twig-bundle": "^7.3",
         "symfony/routing": "^7.3",
-        "symfony/http-foundation": "^7.3"
+        "symfony/http-foundation": "^7.3",
+        "symfony/console": "^7.3"
     },
-    "scripts": {
-        "post-install-cmd": [
-            "php scripts/copy_routes.php",
-            "php scripts/notify_services.php"
-        ],
-        "post-update-cmd": [
-            "php scripts/copy_routes.php",
-            "php scripts/notify_services.php"
-        ],
-        "post-uninstall-cmd": [
-            "php scripts/remove_routes.php"
-        ]
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "^7.0"
+        }
     }
 }

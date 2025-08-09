@@ -1,6 +1,6 @@
 <?php
 
-namespace LocalDemoBundle\Controller;
+namespace LocalAccommodationBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,13 +17,13 @@ class DashboardController extends AbstractController
         $this->sidebarMenuProvider = $sidebarMenuProvider;
     }
 
-    #[Route('/dashboard', name: 'local_demo_dashboard')]
+    #[Route('/dashboard', name: 'local_accommodation_dashboard')]
     public function index(): Response
     {
-        return $this->render('@LocalDemo/dashboard.html.twig', [
+        return $this->render('@LocalAccommodation/dashboard.html.twig', [
             'dummyData' => [
                 'total' => 42,
-                'message' => 'Bem-vindo ao Demo do Bundle!',
+                'message' => 'Bem-vindo ao Accommodation do Bundle!',
             ],
             'sidebarMenu' => $this->sidebarMenuProvider->getMenuItems(),
         ]);

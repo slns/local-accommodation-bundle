@@ -1,0 +1,15 @@
+{
+    "manifest": {
+        "bundles": {
+            "LocalDemoBundle\\LocalDemoBundle": [
+                "all"
+            ]
+        },
+        "copy-from-recipe": {
+            "config/routes/local_demo_bundle.yaml": "config/routes/local_demo_bundle.yaml"
+        },
+        "post-install-output": [
+            "LocalDemoBundle: routes imported. Access /local-demo/dashboard"
+        ]
+    }
+}

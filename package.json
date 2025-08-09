@@ -1,0 +1,9 @@
+{
+    "name": "local-accommodation-bundle",
+    "description": "Frontend assets for LocalAccommodationBundle (Tailwind, Stimulus integration)",
+    "private": true,
+    "dependencies": {
+        "@hotwired/stimulus": "^3.0.0",
+        "tailwindcss": "^4.1.11"
+    }
+}

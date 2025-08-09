@@ -1,0 +1,14 @@
+{% extends '@LocalAccommodation/base.html.twig' %}
+
+{% block body %}
+    <div class="max-w-lg mx-auto bg-white p-8 rounded shadow">
+        <h1 class="text-xl font-bold mb-6 text-gray-800">Create Guest</h1>
+        {{ form_start(form, {'attr': {'class': 'space-y-4'}}) }}
+            {{ form_row(form.name, {'attr': {'class': 'form-input'}}) }}
+            {{ form_row(form.email, {'attr': {'class': 'form-input'}}) }}
+            {{ form_row(form.phone, {'attr': {'class': 'form-input'}}) }}
+            <button class="btn btn-primary w-full">Save</button>
+        {{ form_end(form) }}
+        <a href="{{ path('local_accommodation_hospedes') }}" class="btn btn-secondary mt-4 w-full">Back to list</a>
+    </div>
+{% endblock %}
