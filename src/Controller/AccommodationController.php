@@ -1,4 +1,3 @@
-
 <?php
 
 use Symfony\Component\Yaml\Yaml;
@@ -24,6 +23,7 @@ class AccommodationController extends AbstractController
         $menuConfig = Yaml::parseFile($menuFile);
         return $menuConfig['sidebar'] ?? [];
     }
+
     #[Route('/local-accommodation/accommodations', name: 'local_accommodation_accommodations')]
     public function index(ManagerRegistry $registry): Response
     {
