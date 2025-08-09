@@ -5,7 +5,7 @@
 1. Adicione o bundle ao seu projeto Symfony (via Composer):
 
    ```bash
-   composer require slns/local-demo-bundle
+   composer require slns/local-demo-bundle:dev-main
    ```
 
 2. Certifique-se de que o bundle está registrado em `config/bundles.php`:

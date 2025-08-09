@@ -4,9 +4,7 @@
 namespace LocalDemoBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
-
 use LocalDemoBundle\DependencyInjection\LocalDemoExtension;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
