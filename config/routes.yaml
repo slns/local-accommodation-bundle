@@ -1,32 +1,104 @@
 # Rotas do LocalAccommodationBundle
+
+# Dashboard
 local_accommodation_dashboard:
   path: /local-accommodation/dashboard
   controller: LocalAccommodationBundle\Controller\DashboardController::index
 
+# Guests
 local_accommodation_guests:
   path: /local-accommodation/guests
   controller: LocalAccommodationBundle\Controller\GuestController::index
+local_accommodation_guests_new:
+  path: /local-accommodation/guests/new
+  controller: LocalAccommodationBundle\Controller\GuestController::new
+local_accommodation_guests_edit:
+  path: /local-accommodation/guests/{id}/edit
+  controller: LocalAccommodationBundle\Controller\GuestController::edit
+local_accommodation_guests_delete:
+  path: /local-accommodation/guests/{id}/delete
+  controller: LocalAccommodationBundle\Controller\GuestController::delete
 
+# Employees
 local_accommodation_employees:
   path: /local-accommodation/employees
   controller: LocalAccommodationBundle\Controller\EmployeeController::index
+local_accommodation_employees_new:
+  path: /local-accommodation/employees/new
+  controller: LocalAccommodationBundle\Controller\EmployeeController::new
+local_accommodation_employees_edit:
+  path: /local-accommodation/employees/{id}/edit
+  controller: LocalAccommodationBundle\Controller\EmployeeController::edit
+local_accommodation_employees_delete:
+  path: /local-accommodation/employees/{id}/delete
+  controller: LocalAccommodationBundle\Controller\EmployeeController::delete
 
+# Consumables
 local_accommodation_consumables:
   path: /local-accommodation/consumables
   controller: LocalAccommodationBundle\Controller\ConsumableController::index
+local_accommodation_consumables_new:
+  path: /local-accommodation/consumables/new
+  controller: LocalAccommodationBundle\Controller\ConsumableController::new
+local_accommodation_consumables_edit:
+  path: /local-accommodation/consumables/{id}/edit
+  controller: LocalAccommodationBundle\Controller\ConsumableController::edit
+local_accommodation_consumables_delete:
+  path: /local-accommodation/consumables/{id}/delete
+  controller: LocalAccommodationBundle\Controller\ConsumableController::delete
 
+# Payments
 local_accommodation_payments:
   path: /local-accommodation/payments
   controller: LocalAccommodationBundle\Controller\PaymentController::index
+local_accommodation_payments_new:
+  path: /local-accommodation/payments/new
+  controller: LocalAccommodationBundle\Controller\PaymentController::new
+local_accommodation_payments_edit:
+  path: /local-accommodation/payments/{id}/edit
+  controller: LocalAccommodationBundle\Controller\PaymentController::edit
+local_accommodation_payments_delete:
+  path: /local-accommodation/payments/{id}/delete
+  controller: LocalAccommodationBundle\Controller\PaymentController::delete
 
+# Laundry
 local_accommodation_laundry:
   path: /local-accommodation/laundry
   controller: LocalAccommodationBundle\Controller\LaundryController::index
+local_accommodation_laundry_new:
+  path: /local-accommodation/laundry/new
+  controller: LocalAccommodationBundle\Controller\LaundryController::new
+local_accommodation_laundry_edit:
+  path: /local-accommodation/laundry/{id}/edit
+  controller: LocalAccommodationBundle\Controller\LaundryController::edit
+local_accommodation_laundry_delete:
+  path: /local-accommodation/laundry/{id}/delete
+  controller: LocalAccommodationBundle\Controller\LaundryController::delete
 
+# Maintenance
 local_accommodation_maintenance:
   path: /local-accommodation/maintenance
   controller: LocalAccommodationBundle\Controller\MaintenanceController::index
+local_accommodation_maintenance_new:
+  path: /local-accommodation/maintenance/new
+  controller: LocalAccommodationBundle\Controller\MaintenanceController::new
+local_accommodation_maintenance_edit:
+  path: /local-accommodation/maintenance/{id}/edit
+  controller: LocalAccommodationBundle\Controller\MaintenanceController::edit
+local_accommodation_maintenance_delete:
+  path: /local-accommodation/maintenance/{id}/delete
+  controller: LocalAccommodationBundle\Controller\MaintenanceController::delete
 
+# Accommodations
 local_accommodation_accommodations:
   path: /local-accommodation/accommodations
   controller: LocalAccommodationBundle\Controller\AccommodationController::index
+local_accommodation_accommodations_new:
+  path: /local-accommodation/accommodations/new
+  controller: LocalAccommodationBundle\Controller\AccommodationController::new
+local_accommodation_accommodations_edit:
+  path: /local-accommodation/accommodations/{id}/edit
+  controller: LocalAccommodationBundle\Controller\AccommodationController::edit
+local_accommodation_accommodations_delete:
+  path: /local-accommodation/accommodations/{id}/delete
+  controller: LocalAccommodationBundle\Controller\AccommodationController::delete
