@@ -1,15 +1,15 @@
 {
     "manifest": {
         "bundles": {
-            "LocalDemoBundle\\LocalDemoBundle": [
+            "LocalAccommodationBundle\\LocalAccommodationBundle": [
                 "all"
             ]
         },
         "copy-from-recipe": {
-            "config/routes/local_demo_bundle.yaml": "config/routes/local_demo_bundle.yaml"
+            "config/routes/local_accommodation_bundle.yaml": "config/routes/local_accommodation_bundle.yaml"
         },
         "post-install-output": [
-            "LocalDemoBundle: routes imported. Access /local-demo/dashboard"
+            "LocalAccommodationBundle: routes imported. Access /local-accommodation/dashboard"
         ]
     }
 }

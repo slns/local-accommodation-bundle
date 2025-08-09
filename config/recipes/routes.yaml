@@ -1,2 +1,2 @@
 imports:
-  - resource: "@LocalDemoBundle/config/routes.yaml"
+  - resource: "@LocalAccommodationBundle/config/routes.yaml"

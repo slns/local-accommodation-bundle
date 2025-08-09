@@ -1,6 +1,6 @@
 manifest:
   copy-from-recipe:
     - {
-        source: "config/routes/local_demo_bundle.yaml",
-        target: "config/routes/local_demo_bundle.yaml",
+        source: "config/routes/local_accommodation_bundle.yaml",
+        target: "config/routes/local_accommodation_bundle.yaml",
       }

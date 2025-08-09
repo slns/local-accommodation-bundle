@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Custom styles for LocalDemoBundle */
+/* Custom styles for LocalAccommodationBundle */
 .table {
   @apply min-w-full divide-y divide-gray-200;
 }

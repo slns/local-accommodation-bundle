@@ -1,5 +1,5 @@
 # Rotas do LocalAccommodationBundle
-local_demo_dashboard:
+local_accommodation_dashboard:
   path: /local-accommodation/dashboard
   controller: LocalAccommodationBundle\Controller\DashboardController::index
 
