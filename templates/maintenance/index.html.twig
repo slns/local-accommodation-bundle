@@ -1,18 +1,42 @@
 {% extends 'dashboard/base.html.twig' %}
 {% block content %}
-<h1 class="text-2xl font-bold mb-6">Maintenance</h1>
-<table class="min-w-full table-auto bg-white">
-    <thead><tr><th>Issue</th><th>Reported At</th><th>Status</th></tr></thead>
-    <tbody>
-    {% for maintenance in maintenance %}
-        <tr>
-            <td>{{ maintenance.issue }}</td>
-            <td>{{ maintenance.reportedAt|date('Y-m-d H:i') }}</td>
-            <td>{{ maintenance.status }}</td>
-        </tr>
-    {% else %}
-        <tr><td colspan="3">No maintenance records found.</td></tr>
-    {% endfor %}
-    </tbody>
-</table>
+    <h1 class="text-2xl font-bold mb-6">
+        {{ 'local_accommodation.maintenance.title'|trans }}
+    </h1>
+    <table class="min-w-full table-auto bg-white">
+        <thead>
+            <tr>
+                <th>
+                    {{ 'local_accommodation.maintenance.issue'|trans }}
+                </th>
+                <th>
+                    {{ 'local_accommodation.maintenance.reported_at'|trans }}
+                </th>
+                <th>
+                    {{ 'local_accommodation.maintenance.status'|trans }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for maintenance in maintenance %}
+                <tr>
+                    <td>
+                        {{ maintenance.issue }}
+                    </td>
+                    <td>
+                        {{ maintenance.reportedAt|date('Y-m-d H:i') }}
+                    </td>
+                    <td>
+                        {{ maintenance.status }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">
+                        {{ 'local_accommodation.maintenance.empty'|trans }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

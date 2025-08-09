@@ -1,18 +1,42 @@
 {% extends 'dashboard/base.html.twig' %}
 {% block content %}
-<h1 class="text-2xl font-bold mb-6">Employees</h1>
-<table class="min-w-full table-auto bg-white">
-    <thead><tr><th>Name</th><th>Email</th><th>Phone</th></tr></thead>
-    <tbody>
-    {% for employee in employees %}
-        <tr>
-            <td>{{ employee.name }}</td>
-            <td>{{ employee.email }}</td>
-            <td>{{ employee.phone }}</td>
-        </tr>
-    {% else %}
-        <tr><td colspan="3">No employees found.</td></tr>
-    {% endfor %}
-    </tbody>
-</table>
+    <h1 class="text-2xl font-bold mb-6">
+        {{ 'local_accommodation.employees.title'|trans }}
+    </h1>
+    <table class="min-w-full table-auto bg-white">
+        <thead>
+            <tr>
+                <th>
+                    {{ 'local_accommodation.employees.name'|trans }}
+                </th>
+                <th>
+                    {{ 'local_accommodation.employees.email'|trans }}
+                </th>
+                <th>
+                    {{ 'local_accommodation.employees.phone'|trans }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+                <tr>
+                    <td>
+                        {{ employee.name }}
+                    </td>
+                    <td>
+                        {{ employee.email }}
+                    </td>
+                    <td>
+                        {{ employee.phone }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">
+                        {{ 'local_accommodation.employees.empty'|trans }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

@@ -1,17 +1,36 @@
 {% extends 'dashboard/base.html.twig' %}
 {% block content %}
-<h1 class="text-2xl font-bold mb-6">Consumables</h1>
-<table class="min-w-full table-auto bg-white">
-    <thead><tr><th>Name</th><th>Stock</th></tr></thead>
-    <tbody>
-    {% for consumable in consumables %}
-        <tr>
-            <td>{{ consumable.name }}</td>
-            <td>{{ consumable.stock }}</td>
-        </tr>
-    {% else %}
-        <tr><td colspan="2">No consumables found.</td></tr>
-    {% endfor %}
-    </tbody>
-</table>
+    <h1 class="text-2xl font-bold mb-6">
+        {{ 'local_accommodation.consumables.title'|trans }}
+    </h1>
+    <table class="min-w-full table-auto bg-white">
+        <thead>
+            <tr>
+                <th>
+                    {{ 'local_accommodation.consumables.name'|trans }}
+                </th>
+                <th>
+                    {{ 'local_accommodation.consumables.stock'|trans }}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for consumable in consumables %}
+                <tr>
+                    <td>
+                        {{ consumable.name }}
+                    </td>
+                    <td>
+                        {{ consumable.stock }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">
+                        {{ 'local_accommodation.consumables.empty'|trans }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

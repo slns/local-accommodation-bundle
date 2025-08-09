@@ -2,35 +2,65 @@
 
 {% block content %}
     <div class="flex items-center justify-between mb-6">
-        <h1 class="text-2xl font-bold text-gray-800">Accommodations</h1>
-        <a href="{{ path('local_accommodation_accommodations_new') }}" class="btn btn-success">New Accommodation</a>
+        <h1 class="text-2xl font-bold text-gray-800">
+            {{ 'local_accommodation.accommodations.title'|trans }}
+        </h1>
+        <a href="{{ path('local_accommodation_accommodations_new') }}" class="btn btn-success">
+            {{ 'local_accommodation.accommodations.new'|trans }}
+        </a>
     </div>
     <div class="overflow-x-auto rounded shadow">
         <table class="min-w-full table-auto divide-y divide-gray-200 bg-white">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Address</th>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Capacity</th>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.accommodations.id'|trans }}
+                    </th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.accommodations.name'|trans }}
+                    </th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.accommodations.address'|trans }}
+                    </th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.accommodations.capacity'|trans }}
+                    </th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.accommodations.actions'|trans }}
+                    </th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-            {% for accommodation in accommodations %}
-                <tr class="hover:bg-gray-50">
-                    <td class="px-4 py-2">{{ accommodation.id }}</td>
-                    <td class="px-4 py-2">{{ accommodation.name }}</td>
-                    <td class="px-4 py-2">{{ accommodation.address }}</td>
-                    <td class="px-4 py-2">{{ accommodation.capacity }}</td>
-                    <td class="px-4 py-2 space-x-2">
-                        <a href="{{ path('local_accommodation_accommodations_edit', {'id': accommodation.id}) }}" class="btn btn-primary">Edit</a>
-                        <a href="{{ path('local_accommodation_accommodations_delete', {'id': accommodation.id}) }}" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr><td colspan="5" class="px-4 py-2 text-center text-gray-400">No accommodations found.</td></tr>
-            {% endfor %}
+                {% for accommodation in accommodations %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-4 py-2">
+                            {{ accommodation.id }}
+                        </td>
+                        <td class="px-4 py-2">
+                            {{ accommodation.name }}
+                        </td>
+                        <td class="px-4 py-2">
+                            {{ accommodation.address }}
+                        </td>
+                        <td class="px-4 py-2">
+                            {{ accommodation.capacity }}
+                        </td>
+                        <td class="px-4 py-2 space-x-2">
+                            <a href="{{ path('local_accommodation_accommodations_edit', {'id': accommodation.id}) }}" class="btn btn-primary">
+                                {{ 'local_accommodation.accommodations.edit'|trans }}
+                            </a>
+                            <a href="{{ path('local_accommodation_accommodations_delete', {'id': accommodation.id}) }}" class="btn btn-danger">
+                                {{ 'local_accommodation.accommodations.delete'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="px-4 py-2 text-center text-gray-400">
+                            {{ 'local_accommodation.accommodations.empty'|trans }}
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

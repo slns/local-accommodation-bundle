@@ -2,35 +2,65 @@
 
 {% block content %}
     <div class="flex items-center justify-between mb-6">
-    <h1 class="text-2xl font-bold text-gray-800">Guests</h1>
-    <a href="{{ path('local_accommodation_guests_new') }}" class="btn btn-success">New Guest</a>
+        <h1 class="text-2xl font-bold text-gray-800">
+            {{ 'local_accommodation.guests.title'|trans }}
+        </h1>
+        <a href="{{ path('local_accommodation_guests_new') }}" class="btn btn-success">
+            {{ 'local_accommodation.guests.new'|trans }}
+        </a>
     </div>
     <div class="overflow-x-auto rounded shadow">
         <table class="min-w-full table-auto divide-y divide-gray-200 bg-white">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Name</th>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Phone</th>
-                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.guests.id'|trans }}
+                    </th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.guests.name'|trans }}
+                    </th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.guests.email'|trans }}
+                    </th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.guests.phone'|trans }}
+                    </th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">
+                        {{ 'local_accommodation.guests.actions'|trans }}
+                    </th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-            {% for guest in guests %}
-                <tr class="hover:bg-gray-50">
-                    <td class="px-4 py-2">{{ guest.id }}</td>
-                    <td class="px-4 py-2">{{ guest.name }}</td>
-                    <td class="px-4 py-2">{{ guest.email }}</td>
-                    <td class="px-4 py-2">{{ guest.phone }}</td>
-                    <td class="px-4 py-2 space-x-2">
-                        <a href="{{ path('local_accommodation_guests_edit', {'id': guest.id}) }}" class="btn btn-primary">Edit</a>
-                        <a href="{{ path('local_accommodation_guests_delete', {'id': guest.id}) }}" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr><td colspan="5" class="px-4 py-2 text-center text-gray-400">No guests found.</td></tr>
-            {% endfor %}
+                {% for guest in guests %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-4 py-2">
+                            {{ guest.id }}
+                        </td>
+                        <td class="px-4 py-2">
+                            {{ guest.name }}
+                        </td>
+                        <td class="px-4 py-2">
+                            {{ guest.email }}
+                        </td>
+                        <td class="px-4 py-2">
+                            {{ guest.phone }}
+                        </td>
+                        <td class="px-4 py-2 space-x-2">
+                            <a href="{{ path('local_accommodation_guests_edit', {'id': guest.id}) }}" class="btn btn-primary">
+                                {{ 'local_accommodation.guests.edit'|trans }}
+                            </a>
+                            <a href="{{ path('local_accommodation_guests_delete', {'id': guest.id}) }}" class="btn btn-danger">
+                                {{ 'local_accommodation.guests.delete'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="px-4 py-2 text-center text-gray-400">
+                            {{ 'local_accommodation.guests.empty'|trans }}
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
