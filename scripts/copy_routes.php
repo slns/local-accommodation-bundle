@@ -1,17 +1,19 @@
 <?php
 // scripts/copy_routes.php
+$target = __DIR__ . '/../../../../config/routes/local_demo_bundle.yaml';
+$source = __DIR__ . '/../config/routes/local_demo_bundle.yaml';
 
+if (!file_exists($source)) {
+    echo "[local-demo-bundle] Arquivo de rotas não encontrado: $source\n";
+    exit(1);
+}
 
-// Quando executado a partir do vendor, __DIR__ é .../vendor/slns/local-demo-bundle/scripts
-$projectRoot = dirname(dirname(dirname(dirname(__DIR__))));
-$target = $projectRoot . '/config/routes/local_demo_bundle.yaml';
-$content = "local_demo_bundle:\n    resource: '../../vendor/slns/local-demo-bundle/config/routes.yaml'\n";
-
-if (!is_dir(dirname($target))) {
+if (!file_exists(dirname($target))) {
     mkdir(dirname($target), 0777, true);
 }
 
-if (file_put_contents($target, $content) !== false) {
+
+if (copy($source, $target)) {
     echo "[local-demo-bundle] Rotas copiadas para $target\n";
 } else {
     echo "[local-demo-bundle] Falha ao copiar rotas!\n";

@@ -1,5 +1,6 @@
 <?php
 // scripts/notify_services.php
+
 $block = <<<YAML
 
 # Adicione este bloco em config/services.yaml para ativar controllers do bundle:

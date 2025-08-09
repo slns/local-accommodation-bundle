@@ -17,10 +17,12 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "php scripts/copy_routes.php"
+            "php scripts/copy_routes.php",
+            "php scripts/notify_services.php"
         ],
         "post-update-cmd": [
-            "php scripts/copy_routes.php"
+            "php scripts/copy_routes.php",
+            "php scripts/notify_services.php"
         ],
         "post-uninstall-cmd": [
             "php scripts/remove_routes.php"
