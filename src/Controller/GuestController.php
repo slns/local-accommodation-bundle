@@ -1,4 +1,7 @@
+
 <?php
+
+use Symfony\Component\Yaml\Yaml;
 
 namespace LocalAccommodationBundle\Controller;
 
@@ -12,12 +15,23 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class GuestController extends AbstractController
 {
+    private function getSidebarMenu(): array
+    {
+        $menuFile = __DIR__ . '/../../menu.yaml';
+        if (!file_exists($menuFile)) {
+            return [];
+        }
+        $menuConfig = Yaml::parseFile($menuFile);
+        return $menuConfig['sidebar'] ?? [];
+    }
+    
     #[Route('/local-accommodation/guests', name: 'local_accommodation_guests')]
     public function index(ManagerRegistry $registry): Response
     {
         $guests = $registry->getManager()->getRepository(Guest::class)->findAll();
         return $this->render('@LocalAccommodation/guests/index.html.twig', [
-            'guests' => $guests
+            'guests' => $guests,
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 
@@ -35,6 +49,7 @@ class GuestController extends AbstractController
         }
         return $this->render('@LocalAccommodation/guests/new.html.twig', [
             'form' => $form->createView(),
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 
@@ -55,6 +70,7 @@ class GuestController extends AbstractController
         return $this->render('@LocalAccommodation/guests/edit.html.twig', [
             'form' => $form->createView(),
             'guest' => $guest,
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 
@@ -73,6 +89,7 @@ class GuestController extends AbstractController
         }
         return $this->render('@LocalAccommodation/guests/delete.html.twig', [
             'guest' => $guest,
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 }

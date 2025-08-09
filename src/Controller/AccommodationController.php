@@ -1,4 +1,7 @@
+
 <?php
+
+use Symfony\Component\Yaml\Yaml;
 
 namespace LocalAccommodationBundle\Controller;
 
@@ -12,12 +15,22 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class AccommodationController extends AbstractController
 {
+    private function getSidebarMenu(): array
+    {
+        $menuFile = __DIR__ . '/../../menu.yaml';
+        if (!file_exists($menuFile)) {
+            return [];
+        }
+        $menuConfig = Yaml::parseFile($menuFile);
+        return $menuConfig['sidebar'] ?? [];
+    }
     #[Route('/local-accommodation/accommodations', name: 'local_accommodation_accommodations')]
     public function index(ManagerRegistry $registry): Response
     {
         $accommodations = $registry->getManager()->getRepository(Accommodation::class)->findAll();
         return $this->render('@LocalAccommodation/accommodations/index.html.twig', [
-            'accommodations' => $accommodations
+            'accommodations' => $accommodations,
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 
@@ -35,6 +48,7 @@ class AccommodationController extends AbstractController
         }
         return $this->render('@LocalAccommodation/accommodations/new.html.twig', [
             'form' => $form->createView(),
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 
@@ -55,6 +69,7 @@ class AccommodationController extends AbstractController
         return $this->render('@LocalAccommodation/accommodations/edit.html.twig', [
             'form' => $form->createView(),
             'accommodation' => $accommodation,
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 

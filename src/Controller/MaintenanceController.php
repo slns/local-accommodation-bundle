@@ -1,4 +1,7 @@
+
 <?php
+
+use Symfony\Component\Yaml\Yaml;
 
 namespace LocalAccommodationBundle\Controller;
 
@@ -10,12 +13,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MaintenanceController extends AbstractController
 {
+    private function getSidebarMenu(): array
+    {
+        $menuFile = __DIR__ . '/../../menu.yaml';
+        if (!file_exists($menuFile)) {
+            return [];
+        }
+        $menuConfig = Yaml::parseFile($menuFile);
+        return $menuConfig['sidebar'] ?? [];
+    }
     #[Route('/local-accommodation/maintenance', name: 'local_accommodation_maintenance')]
     public function index(ManagerRegistry $registry): Response
     {
         $maintenance = $registry->getManager()->getRepository(Maintenance::class)->findAll();
         return $this->render('@LocalAccommodation/maintenance/index.html.twig', [
-            'maintenance' => $maintenance
+            'maintenance' => $maintenance,
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 }
