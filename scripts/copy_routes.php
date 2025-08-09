@@ -1,8 +1,9 @@
 <?php
 // scripts/copy_routes.php
-$target = __DIR__ . '/../../../../config/routes/local_demo_bundle.yaml';
-$source = __DIR__ . '/../config/routes/local_demo_bundle.yaml';
-// ...existing code...
+
+// Detecta o caminho do projeto principal a partir da pasta vendor
+$vendorDir = dirname(dirname(dirname(dirname(__DIR__))));
+$target = $vendorDir . '/config/routes/local_demo_bundle.yaml';
 $content = "local_demo_bundle:\n    resource: '../../vendor/slns/local-demo-bundle/config/routes.yaml'\n";
 
 if (!is_dir(dirname($target))) {
