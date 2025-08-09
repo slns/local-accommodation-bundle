@@ -1,7 +1,14 @@
-{% extends 'base.html.twig' %}
+{# Integra com o dashboard principal #}
+{% extends 'dashboard/base.html.twig' %}
 
-{% block body %}
-    <h1>Dashboard do Bundle Demo</h1>
-    <p>Total: {{ dummyData.total }}</p>
-    <p>{{ dummyData.message }}</p>
+{% block title %}Dashboard do Bundle Demo
+{% endblock %}
+
+{% block content %}
+	<h1 class="text-2xl font-bold mb-4">Dashboard do Bundle Demo</h1>
+	<div class="bg-white/10 rounded-lg p-6 mb-4">
+		<p class="text-lg font-semibold">Total:
+			{{ dummyData.total }}</p>
+		<p class="text-white/70">{{ dummyData.message }}</p>
+	</div>
 {% endblock %}

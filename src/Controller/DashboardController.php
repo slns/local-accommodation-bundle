@@ -6,9 +6,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Menu\SidebarMenuProvider;
+
 class DashboardController extends AbstractController
 {
-    #[Route('/local-demo/dashboard', name: 'local_demo_dashboard')]
+    private SidebarMenuProvider $sidebarMenuProvider;
+
+    public function __construct(SidebarMenuProvider $sidebarMenuProvider)
+    {
+        $this->sidebarMenuProvider = $sidebarMenuProvider;
+    }
+
+    #[Route('/dashboard', name: 'local_demo_dashboard')]
     public function index(): Response
     {
         return $this->render('@LocalDemo/dashboard.html.twig', [
@@ -16,6 +25,7 @@ class DashboardController extends AbstractController
                 'total' => 42,
                 'message' => 'Bem-vindo ao Demo do Bundle!',
             ],
+            'sidebarMenu' => $this->sidebarMenuProvider->getMenuItems(),
         ]);
     }
 }

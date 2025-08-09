@@ -2,7 +2,6 @@
 // scripts/copy_routes.php
 $target = __DIR__ . '/../../../../config/routes/local_demo_bundle.yaml';
 $source = __DIR__ . '/../config/routes/local_demo_bundle.yaml';
-
 if (!file_exists($source)) {
     echo "[local-demo-bundle] Arquivo de rotas não encontrado: $source\n";
     exit(1);
