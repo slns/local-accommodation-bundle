@@ -1,4 +1,4 @@
 # Rotas do LocalDemoBundle
 local_demo_dashboard:
-  path: /dashboard
+  path: /local-demo/dashboard
   controller: LocalDemoBundle\Controller\DashboardController::index

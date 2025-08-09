@@ -1,21 +1,28 @@
 <?php
-// scripts/copy_routes.php
-$target = __DIR__ . '/../../../../config/routes/local_demo_bundle.yaml';
-$source = __DIR__ . '/../config/routes/local_demo_bundle.yaml';
 
-if (!file_exists($source)) {
-    echo "[local-demo-bundle] Arquivo de rotas não encontrado: $source\n";
+// Script para adicionar automaticamente as rotas do bundle ao projeto principal
+$routesFile = __DIR__ . '/../../../../config/routes.yaml';
+
+if (!file_exists($routesFile)) {
+    echo "[local-demo-bundle] Arquivo routes.yaml não encontrado no projeto principal.\n";
     exit(1);
 }
 
-if (!file_exists(dirname($target))) {
-    mkdir(dirname($target), 0777, true);
+$routesContent = file_get_contents($routesFile);
+
+// Verificar se a importação já existe
+if (strpos($routesContent, '@LocalDemoBundle/config/routes.yaml') !== false) {
+    echo "[local-demo-bundle] Rotas do LocalDemoBundle já estão configuradas.\n";
+    exit(0);
 }
 
+// Adicionar a importação das rotas
+$routesToAdd = "\n# Importar rotas do LocalDemoBundle\nlocal_demo_bundle:\n    resource: '@LocalDemoBundle/config/routes.yaml'\n";
+$routesContent .= $routesToAdd;
 
-if (copy($source, $target)) {
-    echo "[local-demo-bundle] Rotas copiadas para $target\n";
+if (file_put_contents($routesFile, $routesContent)) {
+    echo "[local-demo-bundle] Rotas do LocalDemoBundle adicionadas com sucesso!\n";
 } else {
-    echo "[local-demo-bundle] Falha ao copiar rotas!\n";
+    echo "[local-demo-bundle] Erro ao adicionar rotas do LocalDemoBundle.\n";
     exit(1);
 }

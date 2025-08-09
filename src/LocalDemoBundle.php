@@ -2,23 +2,21 @@
 
 namespace LocalDemoBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-use LocalDemoBundle\DependencyInjection\LocalDemoExtension;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-
-class LocalDemoBundle extends Bundle
+class LocalDemoBundle extends AbstractBundle
 {
     public function getPath(): string
     {
         return \dirname(__DIR__);
     }
 
-    public function getContainerExtension(): ?ExtensionInterface
+    public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
-        return new LocalDemoExtension();
+        $container->import('../config/services.yaml');
     }
 
     public function configureRoutes(RoutingConfigurator $routes): void
