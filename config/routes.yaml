@@ -6,3 +6,27 @@ local_accommodation_dashboard:
 local_accommodation_guests:
   path: /local-accommodation/guests
   controller: LocalAccommodationBundle\Controller\GuestController::index
+
+local_accommodation_employees:
+  path: /local-accommodation/employees
+  controller: LocalAccommodationBundle\Controller\EmployeeController::index
+
+local_accommodation_consumables:
+  path: /local-accommodation/consumables
+  controller: LocalAccommodationBundle\Controller\ConsumableController::index
+
+local_accommodation_payments:
+  path: /local-accommodation/payments
+  controller: LocalAccommodationBundle\Controller\PaymentController::index
+
+local_accommodation_laundry:
+  path: /local-accommodation/laundry
+  controller: LocalAccommodationBundle\Controller\LaundryController::index
+
+local_accommodation_maintenance:
+  path: /local-accommodation/maintenance
+  controller: LocalAccommodationBundle\Controller\MaintenanceController::index
+
+local_accommodation_accommodations:
+  path: /local-accommodation/accommodations
+  controller: LocalAccommodationBundle\Controller\AccommodationController::index
