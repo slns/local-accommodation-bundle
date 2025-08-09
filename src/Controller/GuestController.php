@@ -1,9 +1,9 @@
 <?php
 
-use Symfony\Component\Yaml\Yaml;
 
 namespace LocalAccommodationBundle\Controller;
 
+use Symfony\Component\Yaml\Yaml;
 use LocalAccommodationBundle\Entity\Guest;
 use LocalAccommodationBundle\Form\GuestType;
 use Doctrine\Persistence\ManagerRegistry;

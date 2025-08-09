@@ -1,9 +1,9 @@
 <?php
 
-use Symfony\Component\Yaml\Yaml;
 
 namespace LocalAccommodationBundle\Controller;
 
+use Symfony\Component\Yaml\Yaml;
 use LocalAccommodationBundle\Entity\Consumable;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

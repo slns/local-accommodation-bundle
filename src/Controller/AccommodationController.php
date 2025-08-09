@@ -1,9 +1,9 @@
 <?php
 
-use Symfony\Component\Yaml\Yaml;
 
 namespace LocalAccommodationBundle\Controller;
 
+use Symfony\Component\Yaml\Yaml;
 use LocalAccommodationBundle\Entity\Accommodation;
 use LocalAccommodationBundle\Form\AccommodationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
