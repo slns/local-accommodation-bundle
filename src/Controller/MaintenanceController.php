@@ -3,12 +3,14 @@
 
 namespace LocalAccommodationBundle\Controller;
 
+
 use Symfony\Component\Yaml\Yaml;
 use LocalAccommodationBundle\Entity\Maintenance;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class MaintenanceController extends AbstractController
 {
@@ -21,11 +23,70 @@ class MaintenanceController extends AbstractController
         $menuConfig = Yaml::parseFile($menuFile);
         return $menuConfig['sidebar'] ?? [];
     }
+
     #[Route('/local-accommodation/maintenance', name: 'local_accommodation_maintenance')]
     public function index(ManagerRegistry $registry): Response
     {
         $maintenance = $registry->getManager()->getRepository(Maintenance::class)->findAll();
         return $this->render('@LocalAccommodation/maintenance/index.html.twig', [
+            'maintenance' => $maintenance,
+            'sidebarMenu' => $this->getSidebarMenu(),
+        ]);
+    }
+
+    #[Route('/local-accommodation/maintenance/new', name: 'local_accommodation_maintenance_new')]
+    public function new(Request $request, ManagerRegistry $registry): Response
+    {
+        $maintenance = new Maintenance();
+        $form = $this->createForm(\LocalAccommodationBundle\Form\MaintenanceType::class, $maintenance);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $registry->getManager();
+            $em->persist($maintenance);
+            $em->flush();
+            return $this->redirectToRoute('local_accommodation_maintenance');
+        }
+        return $this->render('@LocalAccommodation/maintenance/new.html.twig', [
+            'form' => $form->createView(),
+            'sidebarMenu' => $this->getSidebarMenu(),
+        ]);
+    }
+
+    #[Route('/local-accommodation/maintenance/{id}/edit', name: 'local_accommodation_maintenance_edit')]
+    public function edit(int $id, Request $request, ManagerRegistry $registry): Response
+    {
+        $em = $registry->getManager();
+        $maintenance = $em->getRepository(Maintenance::class)->find($id);
+        if (!$maintenance) {
+            throw $this->createNotFoundException('Maintenance not found');
+        }
+        $form = $this->createForm(\LocalAccommodationBundle\Form\MaintenanceType::class, $maintenance);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+            return $this->redirectToRoute('local_accommodation_maintenance');
+        }
+        return $this->render('@LocalAccommodation/maintenance/edit.html.twig', [
+            'form' => $form->createView(),
+            'maintenance' => $maintenance,
+            'sidebarMenu' => $this->getSidebarMenu(),
+        ]);
+    }
+
+    #[Route('/local-accommodation/maintenance/{id}/delete', name: 'local_accommodation_maintenance_delete', methods: ['GET', 'POST'])]
+    public function delete(int $id, Request $request, ManagerRegistry $registry): Response
+    {
+        $em = $registry->getManager();
+        $maintenance = $em->getRepository(Maintenance::class)->find($id);
+        if (!$maintenance) {
+            throw $this->createNotFoundException('Maintenance not found');
+        }
+        if ($request->isMethod('POST')) {
+            $em->remove($maintenance);
+            $em->flush();
+            return $this->redirectToRoute('local_accommodation_maintenance');
+        }
+        return $this->render('@LocalAccommodation/maintenance/delete.html.twig', [
             'maintenance' => $maintenance,
             'sidebarMenu' => $this->getSidebarMenu(),
         ]);

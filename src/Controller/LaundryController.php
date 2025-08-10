@@ -36,29 +36,58 @@ class LaundryController extends AbstractController
     #[Route('/local-accommodation/laundry/new', name: 'local_accommodation_laundry_new')]
     public function new(Request $request, ManagerRegistry $registry): Response
     {
-        $entityManager = $registry->getManager();
         $laundry = new Laundry();
-        $error = null;
-
-        if ($request->isMethod('POST')) {
-            $laundry->setItem($request->request->get('item'));
-            $deliveredAt = $request->request->get('deliveredAt');
-            $receivedAt = $request->request->get('receivedAt');
-            if ($deliveredAt) {
-                $laundry->setDeliveredAt(new \DateTime($deliveredAt));
-            }
-            if ($receivedAt) {
-                $laundry->setReceivedAt(new \DateTime($receivedAt));
-            }
-            $entityManager->persist($laundry);
-            $entityManager->flush();
+        $form = $this->createForm(\LocalAccommodationBundle\Form\LaundryType::class, $laundry);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $registry->getManager();
+            $em->persist($laundry);
+            $em->flush();
             return $this->redirectToRoute('local_accommodation_laundry');
         }
-
         return $this->render('@LocalAccommodation/laundry/new.html.twig', [
+            'form' => $form->createView(),
+            'sidebarMenu' => $this->getSidebarMenu(),
+        ]);
+    }
+
+    #[Route('/local-accommodation/laundry/{id}/edit', name: 'local_accommodation_laundry_edit')]
+    public function edit(int $id, Request $request, ManagerRegistry $registry): Response
+    {
+        $em = $registry->getManager();
+        $laundry = $em->getRepository(Laundry::class)->find($id);
+        if (!$laundry) {
+            throw $this->createNotFoundException('Laundry not found');
+        }
+        $form = $this->createForm(\LocalAccommodationBundle\Form\LaundryType::class, $laundry);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+            return $this->redirectToRoute('local_accommodation_laundry');
+        }
+        return $this->render('@LocalAccommodation/laundry/edit.html.twig', [
+            'form' => $form->createView(),
             'laundry' => $laundry,
             'sidebarMenu' => $this->getSidebarMenu(),
-            'error' => $error,
+        ]);
+    }
+
+    #[Route('/local-accommodation/laundry/{id}/delete', name: 'local_accommodation_laundry_delete', methods: ['GET', 'POST'])]
+    public function delete(int $id, Request $request, ManagerRegistry $registry): Response
+    {
+        $em = $registry->getManager();
+        $laundry = $em->getRepository(Laundry::class)->find($id);
+        if (!$laundry) {
+            throw $this->createNotFoundException('Laundry not found');
+        }
+        if ($request->isMethod('POST')) {
+            $em->remove($laundry);
+            $em->flush();
+            return $this->redirectToRoute('local_accommodation_laundry');
+        }
+        return $this->render('@LocalAccommodation/laundry/delete.html.twig', [
+            'laundry' => $laundry,
+            'sidebarMenu' => $this->getSidebarMenu(),
         ]);
     }
 }
