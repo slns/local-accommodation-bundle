@@ -2,10 +2,10 @@
 
 {% block content %}
     <div class="flex items-center justify-between mb-6">
-        <h1 class="text-2xl font-bold text-gray-800">
+        <h1 class="text-2xl font-bold text-white">
             {{ 'local_accommodation.guests.title'|trans }}
         </h1>
-        <a href="{{ path('local_accommodation_guests_new') }}" class="btn btn-success">
+        <a href="{{ path('local_accommodation_guests_new') }}" class="inline-flex items-center px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white font-semibold shadow-sm hover:bg-white/30 transition-colors duration-200">
             {{ 'local_accommodation.guests.new'|trans }}
         </a>
     </div>
@@ -47,10 +47,10 @@
                                 {{ guest.phone }}
                             </td>
                             <td class="px-4 py-3 space-x-2">
-                                <a href="{{ path('local_accommodation_guests_edit', {'id': guest.id}) }}" class="btn btn-primary">
+                                <a href="{{ path('local_accommodation_guests_edit', {'id': guest.id}) }}" class="inline-flex items-center px-3 py-1.5 rounded bg-white/20 border border-white/30 text-white font-medium shadow-sm hover:bg-white/30 transition-colors duration-200">
                                     {{ 'local_accommodation.guests.edit'|trans }}
                                 </a>
-                                <a href="{{ path('local_accommodation_guests_delete', {'id': guest.id}) }}" class="btn btn-danger">
+                                <a href="{{ path('local_accommodation_guests_delete', {'id': guest.id}) }}" class="inline-flex items-center px-3 py-1.5 rounded bg-red-500/80 border border-red-400 text-white font-medium shadow-sm hover:bg-red-600/90 transition-colors duration-200">
                                     {{ 'local_accommodation.guests.delete'|trans }}
                                 </a>
                             </td>
