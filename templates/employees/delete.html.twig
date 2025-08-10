@@ -1,20 +1,27 @@
 {% extends 'dashboard/base.html.twig' %}
 
 {% block content %}
-    <div class="max-w-lg mx-auto bg-white dark:bg-gray-900 p-8 rounded shadow">
-        <h1 class="text-xl font-bold mb-6 text-gray-800 dark:text-gray-100">
-            {{ 'local_accommodation.employees.delete_title'|trans }}
-        </h1>
-        <p class="mb-6">
-            {{ 'local_accommodation.employees.delete_confirm'|trans({'%name%': employee.name}) }}
-        </p>
+    <div class="max-w-lg mx-auto bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-lg shadow-lg">
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold text-white">
+                {{ 'local_accommodation.employees.delete_title'|trans }}
+            </h1>
+            <p class="text-white/70 text-sm mt-1">
+                {{ 'local_accommodation.employees.delete_subtitle'|trans({ '%name%': employee.name }) }}
+            </p>
+        </div>
         <form method="post" class="flex flex-col space-y-2">
-            <button class="btn btn-danger w-full">
-                {{ 'local_accommodation.employees.delete'|trans }}
+            <button class="bg-red-500/80 hover:bg-red-600/90 border border-red-400 text-white rounded-lg px-4 py-2 w-full font-medium transition-all duration-300 flex items-center justify-center space-x-2">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>
+                    {{ 'local_accommodation.employees.delete'|trans }}
+                </span>
             </button>
-            <a href="{{ path('local_accommodation_employees') }}" class="btn btn-secondary w-full">
+            <a href="{{ path('local_accommodation_employees') }}" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-lg px-4 py-2 w-full block text-center transition-all duration-300">
                 {{ 'local_accommodation.employees.cancel'|trans }}
             </a>
         </form>
-    </div>
-{% endblock %}
+    {% endblock %}
+    

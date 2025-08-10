@@ -1,10 +1,15 @@
 {% extends 'dashboard/base.html.twig' %}
 
 {% block content %}
-    <div class="max-w-lg mx-auto bg-white dark:bg-gray-900 p-8 rounded shadow">
-        <h1 class="text-xl font-bold mb-6 text-gray-800 dark:text-gray-100">
-            {{ 'local_accommodation.maintenance.edit_title'|trans }}
-        </h1>
+    <div class="max-w-lg mx-auto bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-lg shadow-lg">
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold text-white">
+                {{ 'local_accommodation.maintenance.edit_title'|trans }}
+            </h1>
+            <p class="text-white/70 text-sm mt-1">
+                {{ 'local_accommodation.maintenance.edit_subtitle'|trans }}
+            </p>
+        </div>
         {{ form_start(form, {'attr': {'class': 'space-y-4' }}
         ) }}
         {{ form_row(form.issue, {'attr': {'class': 'form-input' }}
@@ -13,12 +18,18 @@
         ) }}
         {{ form_row(form.status, {'attr': {'class': 'form-input' }}
         ) }}
-        <button class="btn btn-primary w-full">
-            {{ 'local_accommodation.maintenance.update'|trans }}
+        <button class="bg-white/20 hover:bg-white/30 backdrop-blur-lg rounded-lg px-4 py-2 border border-white/20 text-white text-sm font-medium transition-all duration-300 w-full flex items-center justify-center space-x-2">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>
+                {{ 'local_accommodation.maintenance.update'|trans }}
+            </span>
         </button>
         {{ form_end(form) }}
-        <a href="{{ path('local_accommodation_maintenance') }}" class="btn btn-secondary mt-4 w-full">
-            {{ 'local_accommodation.maintenance.back'|trans }}
+        <a href="{{ path('local_accommodation_maintenance') }}" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-lg px-4 py-2 mt-4 w-full block text-center transition-all duration-300">
+            {{ 'local_accommodation.maintenance.back_to_list'|trans }}
         </a>
-    </div>
-{% endblock %}
+        {{ 'local_accommodation.maintenance.back'|trans }}
+    </a>
+</div>{% endblock %}

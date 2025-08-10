@@ -1,10 +1,15 @@
 {% extends 'dashboard/base.html.twig' %}
 
 {% block content %}
-    <div class="max-w-lg mx-auto bg-white dark:bg-gray-900 p-8 rounded shadow">
-        <h1 class="text-xl font-bold mb-6 text-gray-800 dark:text-gray-100">
-            {{ 'local_accommodation.maintenance.view_title'|trans }}
-        </h1>
+    <div class="max-w-lg mx-auto bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-lg shadow-lg">
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold text-white">
+                {{ 'local_accommodation.maintenance.view_title'|trans }}
+            </h1>
+            <p class="text-white/70 text-sm mt-1">
+                {{ 'local_accommodation.maintenance.view_subtitle'|trans }}
+            </p>
+        </div>
         <ul class="mb-6">
             <li>
                 <strong>
