@@ -12,24 +12,43 @@
         </div>
         {{ form_start(form, {'attr': {'class': 'space-y-4' }}
         ) }}
-        {{ form_row(form.amount, {'attr': {'class': 'form-input' }}
-        ) }}
-        {{ form_row(form.method, {'attr': {'class': 'form-input' }}
-        ) }}
-        {{ form_row(form.date, {'attr': {'class': 'form-input' }}
-        ) }}
-        <button class="bg-white/20 hover:bg-white/30 backdrop-blur-lg rounded-lg px-4 py-2 border border-white/20 text-white text-sm font-medium transition-all duration-300 w-full flex items-center justify-center space-x-2">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-            <span>
-                {{ 'local_accommodation.payments.update'|trans }}
-            </span>
-        </button>
+        <div class="space-y-4">
+            <div>
+                {{ form_label(form.amount, null, {'label_attr': {'class': 'block text-white/80 font-medium mb-1' }}
+                ) }}
+                {{ form_widget(form.amount, {'attr': {'class': 'form-input bg-white/20 border border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-white/30' }}
+                ) }}
+                {{ form_errors(form.amount) }}
+            </div>
+            <div>
+                {{ form_label(form.method, null, {'label_attr': {'class': 'block text-white/80 font-medium mb-1' }}
+                ) }}
+                {{ form_widget(form.method, {'attr': {'class': 'form-input bg-white/20 border border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-white/30' }}
+                ) }}
+                {{ form_errors(form.method) }}
+            </div>
+            <div>
+                {{ form_label(form.date, null, {'label_attr': {'class': 'block text-white/80 font-medium mb-1' }}
+                ) }}
+                {{ form_widget(form.date, {'attr': {'class': 'form-input bg-white/20 border border-white/20 text-white placeholder-white/50 focus:ring-2 focus:ring-white/30' }}
+                ) }}
+                {{ form_errors(form.date) }}
+            </div>
+        </div>
+        <div class="flex gap-4 mt-4">
+            <button class="bg-white/20 hover:bg-white/30 backdrop-blur-lg rounded-lg px-4 py-2 border border-white/20 text-white text-sm font-medium transition-all duration-300 flex items-center justify-center space-x-2">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>
+                    {{ 'local_accommodation.payments.update'|trans }}
+                </span>
+            </button>
+            <a href="{{ path('local_accommodation_payments') }}" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-lg px-4 py-2 flex items-center justify-center text-sm font-medium transition-all duration-300">
+                {{ 'local_accommodation.payments.back_to_list'|trans }}
+            </a>
+        </div>
         {{ form_end(form) }}
-        <a href="{{ path('local_accommodation_payments') }}" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white rounded-lg px-4 py-2 mt-4 w-full block text-center transition-all duration-300">
-            {{ 'local_accommodation.payments.back_to_list'|trans }}
-        </a>
         {{ 'local_accommodation.payments.back'|trans }}
     </a>
 </div>{% endblock %}

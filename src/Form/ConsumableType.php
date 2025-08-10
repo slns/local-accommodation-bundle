@@ -1,3 +1,8 @@
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 <?php
 
 namespace LocalAccommodationBundle\Form;
@@ -14,8 +19,12 @@ class ConsumableType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('stock', IntegerType::class)
+            ->add('name', TextType::class, [
+                'label' => 'local_accommodation.consumables.name',
+            ])
+            ->add('stock', IntegerType::class, [
+                'label' => 'local_accommodation.consumables.stock',
+            ])
         ;
     }
 

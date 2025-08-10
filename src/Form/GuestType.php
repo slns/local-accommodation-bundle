@@ -1,3 +1,8 @@
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 <?php
 
 namespace LocalAccommodationBundle\Form;
@@ -12,14 +17,14 @@ class GuestType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
-                'label' => 'Name',
+            ->add('name', TextType::class, [
+                'label' => 'local_accommodation.guests.name',
             ])
-            ->add('email', \Symfony\Component\Form\Extension\Core\Type\EmailType::class, [
-                'label' => 'Email',
+            ->add('email', EmailType::class, [
+                'label' => 'local_accommodation.guests.email',
             ])
-            ->add('phone', \Symfony\Component\Form\Extension\Core\Type\TextType::class, [
-                'label' => 'Phone',
+            ->add('phone', TextType::class, [
+                'label' => 'local_accommodation.guests.phone',
                 'required' => false,
             ])
         ;

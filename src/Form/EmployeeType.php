@@ -1,3 +1,7 @@
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 <?php
 
 namespace LocalAccommodationBundle\Form;
@@ -13,9 +17,14 @@ class EmployeeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('email', TextType::class)
+            ->add('name', TextType::class, [
+                'label' => 'local_accommodation.employees.name',
+            ])
+            ->add('email', TextType::class, [
+                'label' => 'local_accommodation.employees.email',
+            ])
             ->add('phone', TextType::class, [
+                'label' => 'local_accommodation.employees.phone',
                 'required' => false,
             ])
         ;

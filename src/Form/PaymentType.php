@@ -1,3 +1,9 @@
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 <?php
 
 namespace LocalAccommodationBundle\Form;
@@ -15,9 +21,15 @@ class PaymentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('amount', NumberType::class)
-            ->add('method', TextType::class)
-            ->add('date', DateTimeType::class)
+            ->add('amount', NumberType::class, [
+                'label' => 'local_accommodation.payments.amount',
+            ])
+            ->add('method', TextType::class, [
+                'label' => 'local_accommodation.payments.method',
+            ])
+            ->add('date', DateTimeType::class, [
+                'label' => 'local_accommodation.payments.date',
+            ])
         ;
     }
 
