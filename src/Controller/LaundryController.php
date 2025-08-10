@@ -1,8 +1,10 @@
 <?php
 
 
+
 namespace LocalAccommodationBundle\Controller;
 
+use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 use LocalAccommodationBundle\Entity\Laundry;
 use Doctrine\Persistence\ManagerRegistry;
