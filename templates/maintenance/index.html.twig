@@ -3,40 +3,42 @@
     <h1 class="text-2xl font-bold mb-6">
         {{ 'local_accommodation.maintenance.title'|trans }}
     </h1>
-    <table class="w-full table-auto bg-white">
-        <thead>
-            <tr>
-                <th>
-                    {{ 'local_accommodation.maintenance.issue'|trans }}
-                </th>
-                <th>
-                    {{ 'local_accommodation.maintenance.reported_at'|trans }}
-                </th>
-                <th>
-                    {{ 'local_accommodation.maintenance.status'|trans }}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for maintenance in maintenance %}
+    <div class="w-full overflow-x-auto rounded shadow">
+        <table class="w-full min-w-full table-fixed bg-white">
+            <thead>
                 <tr>
-                    <td>
-                        {{ maintenance.issue }}
-                    </td>
-                    <td>
-                        {{ maintenance.reportedAt|date('Y-m-d H:i') }}
-                    </td>
-                    <td>
-                        {{ maintenance.status }}
-                    </td>
+                    <th>
+                        {{ 'local_accommodation.maintenance.issue'|trans }}
+                    </th>
+                    <th>
+                        {{ 'local_accommodation.maintenance.reported_at'|trans }}
+                    </th>
+                    <th>
+                        {{ 'local_accommodation.maintenance.status'|trans }}
+                    </th>
                 </tr>
-            {% else %}
-                <tr>
-                    <td colspan="3">
-                        {{ 'local_accommodation.maintenance.empty'|trans }}
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% endblock %}
+            </thead>
+            <tbody>
+                {% for maintenance in maintenance %}
+                    <tr>
+                        <td>
+                            {{ maintenance.issue }}
+                        </td>
+                        <td>
+                            {{ maintenance.reportedAt|date('Y-m-d H:i') }}
+                        </td>
+                        <td>
+                            {{ maintenance.status }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">
+                            {{ 'local_accommodation.maintenance.empty'|trans }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+    

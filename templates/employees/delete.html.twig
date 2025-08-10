@@ -1,0 +1,20 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block content %}
+    <div class="max-w-lg mx-auto bg-white dark:bg-gray-900 p-8 rounded shadow">
+        <h1 class="text-xl font-bold mb-6 text-gray-800 dark:text-gray-100">
+            {{ 'local_accommodation.employees.delete_title'|trans }}
+        </h1>
+        <p class="mb-6">
+            {{ 'local_accommodation.employees.delete_confirm'|trans({'%name%': employee.name}) }}
+        </p>
+        <form method="post" class="flex flex-col space-y-2">
+            <button class="btn btn-danger w-full">
+                {{ 'local_accommodation.employees.delete'|trans }}
+            </button>
+            <a href="{{ path('local_accommodation_employees') }}" class="btn btn-secondary w-full">
+                {{ 'local_accommodation.employees.cancel'|trans }}
+            </a>
+        </form>
+    </div>
+{% endblock %}

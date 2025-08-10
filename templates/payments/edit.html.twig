@@ -1,0 +1,24 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block content %}
+    <div class="max-w-lg mx-auto bg-white p-8 rounded shadow">
+        <h1 class="text-xl font-bold mb-6 text-gray-800">
+            {{ 'local_accommodation.payments.edit_title'|trans }}
+        </h1>
+        {{ form_start(form, {'attr': {'class': 'space-y-4' }}
+        ) }}
+        {{ form_row(form.amount, {'attr': {'class': 'form-input' }}
+        ) }}
+        {{ form_row(form.method, {'attr': {'class': 'form-input' }}
+        ) }}
+        {{ form_row(form.date, {'attr': {'class': 'form-input' }}
+        ) }}
+        <button class="btn btn-primary w-full">
+            {{ 'local_accommodation.payments.update'|trans }}
+        </button>
+        {{ form_end(form) }}
+        <a href="{{ path('local_accommodation_payments') }}" class="btn btn-secondary mt-4 w-full">
+            {{ 'local_accommodation.payments.back'|trans }}
+        </a>
+    </div>
+{% endblock %}

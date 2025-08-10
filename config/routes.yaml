@@ -19,6 +19,10 @@ local_accommodation_guests_delete:
   path: /local-accommodation/guests/{id}/delete
   controller: LocalAccommodationBundle\Controller\GuestController::delete
 
+local_accommodation_guests_view:
+  path: /local-accommodation/guests/{id}/view
+  controller: LocalAccommodationBundle\Controller\GuestController::view
+
 # Employees
 local_accommodation_employees:
   path: /local-accommodation/employees
@@ -32,6 +36,10 @@ local_accommodation_employees_edit:
 local_accommodation_employees_delete:
   path: /local-accommodation/employees/{id}/delete
   controller: LocalAccommodationBundle\Controller\EmployeeController::delete
+
+local_accommodation_employees_view:
+  path: /local-accommodation/employees/{id}/view
+  controller: LocalAccommodationBundle\Controller\EmployeeController::view
 
 # Consumables
 local_accommodation_consumables:
@@ -47,6 +55,10 @@ local_accommodation_consumables_delete:
   path: /local-accommodation/consumables/{id}/delete
   controller: LocalAccommodationBundle\Controller\ConsumableController::delete
 
+local_accommodation_consumables_view:
+  path: /local-accommodation/consumables/{id}/view
+  controller: LocalAccommodationBundle\Controller\ConsumableController::view
+
 # Payments
 local_accommodation_payments:
   path: /local-accommodation/payments
@@ -60,6 +72,10 @@ local_accommodation_payments_edit:
 local_accommodation_payments_delete:
   path: /local-accommodation/payments/{id}/delete
   controller: LocalAccommodationBundle\Controller\PaymentController::delete
+
+local_accommodation_payments_view:
+  path: /local-accommodation/payments/{id}/view
+  controller: LocalAccommodationBundle\Controller\PaymentController::view
 
 # Laundry
 local_accommodation_laundry:
@@ -75,6 +91,10 @@ local_accommodation_laundry_delete:
   path: /local-accommodation/laundry/{id}/delete
   controller: LocalAccommodationBundle\Controller\LaundryController::delete
 
+local_accommodation_laundry_view:
+  path: /local-accommodation/laundry/{id}/view
+  controller: LocalAccommodationBundle\Controller\LaundryController::view
+
 # Maintenance
 local_accommodation_maintenance:
   path: /local-accommodation/maintenance
@@ -89,6 +109,10 @@ local_accommodation_maintenance_delete:
   path: /local-accommodation/maintenance/{id}/delete
   controller: LocalAccommodationBundle\Controller\MaintenanceController::delete
 
+local_accommodation_maintenance_view:
+  path: /local-accommodation/maintenance/{id}/view
+  controller: LocalAccommodationBundle\Controller\MaintenanceController::view
+
 # Accommodations
 local_accommodation_accommodations:
   path: /local-accommodation/accommodations
@@ -102,3 +126,7 @@ local_accommodation_accommodations_edit:
 local_accommodation_accommodations_delete:
   path: /local-accommodation/accommodations/{id}/delete
   controller: LocalAccommodationBundle\Controller\AccommodationController::delete
+
+local_accommodation_accommodations_view:
+  path: /local-accommodation/accommodations/{id}/view
+  controller: LocalAccommodationBundle\Controller\AccommodationController::view

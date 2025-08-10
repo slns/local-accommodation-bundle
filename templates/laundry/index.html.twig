@@ -3,40 +3,42 @@
     <h1 class="text-2xl font-bold mb-6">
         {{ 'local_accommodation.laundry.title'|trans }}
     </h1>
-    <table class="w-full table-auto bg-white">
-        <thead>
-            <tr>
-                <th>
-                    {{ 'local_accommodation.laundry.item'|trans }}
-                </th>
-                <th>
-                    {{ 'local_accommodation.laundry.delivered_at'|trans }}
-                </th>
-                <th>
-                    {{ 'local_accommodation.laundry.received_at'|trans }}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for laundry in laundry %}
+    <div class="w-full overflow-x-auto rounded shadow">
+        <table class="w-full min-w-full table-fixed bg-white">
+            <thead>
                 <tr>
-                    <td>
-                        {{ laundry.item }}
-                    </td>
-                    <td>
-                        {{ laundry.deliveredAt|date('Y-m-d H:i') }}
-                    </td>
-                    <td>
-                        {{ laundry.receivedAt ? laundry.receivedAt|date('Y-m-d H:i') : '-' }}
-                    </td>
+                    <th>
+                        {{ 'local_accommodation.laundry.item'|trans }}
+                    </th>
+                    <th>
+                        {{ 'local_accommodation.laundry.delivered_at'|trans }}
+                    </th>
+                    <th>
+                        {{ 'local_accommodation.laundry.received_at'|trans }}
+                    </th>
                 </tr>
-            {% else %}
-                <tr>
-                    <td colspan="3">
-                        {{ 'local_accommodation.laundry.empty'|trans }}
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% endblock %}
+            </thead>
+            <tbody>
+                {% for laundry in laundry %}
+                    <tr>
+                        <td>
+                            {{ laundry.item }}
+                        </td>
+                        <td>
+                            {{ laundry.deliveredAt|date('Y-m-d H:i') }}
+                        </td>
+                        <td>
+                            {{ laundry.receivedAt ? laundry.receivedAt|date('Y-m-d H:i') : '-' }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">
+                            {{ 'local_accommodation.laundry.empty'|trans }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+    

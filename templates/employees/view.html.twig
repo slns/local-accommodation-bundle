@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block content %}
+    <div class="max-w-lg mx-auto bg-white dark:bg-gray-900 p-8 rounded shadow">
+        <h1 class="text-xl font-bold mb-6 text-gray-800 dark:text-gray-100">
+            {{ 'local_accommodation.employees.view_title'|trans }}
+        </h1>
+        <ul class="mb-6">
+            <li>
+                <strong>
+                    {{ 'local_accommodation.employees.name'|trans }}
+                    :
+                </strong>
+                {{ employee.name }}
+            </li>
+            <li>
+                <strong>
+                    {{ 'local_accommodation.employees.role'|trans }}
+                    :
+                </strong>
+                {{ employee.role }}
+            </li>
+            <li>
+                <strong>
+                    {{ 'local_accommodation.employees.email'|trans }}
+                    :
+                </strong>
+                {{ employee.email }}
+            </li>
+        </ul>
+        <a href="{{ path('local_accommodation_employees') }}" class="btn btn-secondary w-full">
+            {{ 'local_accommodation.employees.back'|trans }}
+        </a>
+    </div>
+{% endblock %}

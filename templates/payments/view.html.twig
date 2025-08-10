@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block content %}
+    <div class="max-w-lg mx-auto bg-white p-8 rounded shadow">
+        <h1 class="text-xl font-bold mb-6 text-gray-800">
+            {{ 'local_accommodation.payments.view_title'|trans }}
+        </h1>
+        <ul class="mb-6">
+            <li>
+                <strong>
+                    {{ 'local_accommodation.payments.amount'|trans }}
+                    :
+                </strong>
+                {{ payment.amount }}
+            </li>
+            <li>
+                <strong>
+                    {{ 'local_accommodation.payments.method'|trans }}
+                    :
+                </strong>
+                {{ payment.method }}
+            </li>
+            <li>
+                <strong>
+                    {{ 'local_accommodation.payments.date'|trans }}
+                    :
+                </strong>
+                {{ payment.date|date('Y-m-d H:i') }}
+            </li>
+        </ul>
+        <a href="{{ path('local_accommodation_payments') }}" class="btn btn-secondary w-full">
+            {{ 'local_accommodation.payments.back'|trans }}
+        </a>
+    </div>
+{% endblock %}

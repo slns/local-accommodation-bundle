@@ -1,0 +1,22 @@
+{% extends 'dashboard/base.html.twig' %}
+
+{% block content %}
+    <div class="max-w-lg mx-auto bg-white dark:bg-gray-900 p-8 rounded shadow">
+        <h1 class="text-xl font-bold mb-6 text-gray-800 dark:text-gray-100">
+            {{ 'local_accommodation.consumables.new_title'|trans }}
+        </h1>
+        {{ form_start(form, {'attr': {'class': 'space-y-4' }}
+        ) }}
+        {{ form_row(form.item, {'attr': {'class': 'form-input' }}
+        ) }}
+        {{ form_row(form.quantity, {'attr': {'class': 'form-input' }}
+        ) }}
+        <button class="btn btn-primary w-full">
+            {{ 'local_accommodation.consumables.save'|trans }}
+        </button>
+        {{ form_end(form) }}
+        <a href="{{ path('local_accommodation_consumables') }}" class="btn btn-secondary mt-4 w-full">
+            {{ 'local_accommodation.consumables.back'|trans }}
+        </a>
+    </div>
+{% endblock %}
