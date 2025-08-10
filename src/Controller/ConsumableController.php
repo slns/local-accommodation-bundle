@@ -1,6 +1,5 @@
 <?php
 
-
 namespace LocalAccommodationBundle\Controller;
 
 use Symfony\Component\Yaml\Yaml;
